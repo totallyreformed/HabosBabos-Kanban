@@ -137,6 +137,7 @@ let statusColumns;
     };
 
 addEventListener("DOMContentLoaded", () => {
+    
 
     titleInput = document.getElementById("task-title");
     descriptionInput = document.getElementById("task-description");
@@ -145,9 +146,16 @@ addEventListener("DOMContentLoaded", () => {
     toDoColumn = document.getElementById("to-do");
     statusColumns = document.querySelectorAll(".task-status");
 
+    // Ensure tasks already present in the DOM can start dragging.
+    document.querySelectorAll(".task-item").forEach((task) => {
+        task.addEventListener("dragstart", dragStartHandler);
+    });
+
     // Load tasks from localStorage if available
     const storedTasks = JSON.parse(localStorage.getItem("task"));
     if (Array.isArray(storedTasks)) {
+        // Stored tasks are the source of truth after first persistence.
+        document.querySelectorAll(".task-item").forEach((taskElement) => taskElement.remove());
         tasks = [];
         console.log(storedTasks);
 
@@ -169,6 +177,16 @@ addEventListener("DOMContentLoaded", () => {
 
     // Normalize storage once after hydration.
     localStorage.setItem("task", JSON.stringify(tasks));
+    } else {
+        // First run: persist preexisting tasks already in the HTML.
+        tasks = [];
+        document.querySelectorAll(".task-item").forEach((taskElement) => {
+            const title = taskElement.querySelector("h3")?.textContent || "";
+            const description = taskElement.querySelector("p")?.textContent || "";
+            const status = taskElement.querySelector("data")?.getAttribute("status") || taskElement.closest(".task-status")?.id || "to-do";
+            tasks.push({ title, description, status });
+        });
+        localStorage.setItem("task", JSON.stringify(tasks));
     }
     
 
