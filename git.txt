@@ -1,0 +1,10 @@
+Steps for Merging:
+1. Checkout Main
+2. Fetch & Pull on Main
+3. Right-click on our branch -> merge on Main
+4. Push Main
+
+Steps for syncing:
+5. Checkout our branch
+6. Right-click on main -> Fast-forward to Main
+7. Push our branch
