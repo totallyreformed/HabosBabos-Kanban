@@ -1,0 +1,107 @@
+:root {
+    font-family: sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-title {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.add-task {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgb(221, 221, 255);
+    border-radius: 10px;
+    padding: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.task-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.task-status {
+    width: 100%;
+    height: 750px;
+    background-color: rgb(221, 221, 255);
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.task-status h2 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.task-status .task-item {
+    width: 100%;
+    min-height: 70px;
+    background-color: white;
+    border-radius: 6px;
+    /* border: 2px solid #9aa8ff; */
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: grab;
+    user-select: none;
+    overflow: auto;
+
+    
+    /* 1. Add these for alignment */
+    display: flex;
+    justify-content: space-between; /* Pushes content to left and button to right */
+    align-items: center;            /* Centers them vertically */
+    box-sizing: border-box;         /* Ensures padding doesn't grow the width */
+    
+    #delete-task-btn {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+}
+
+#to-do .task-item {
+    border: red 2px solid;
+}
+
+#in-progress .task-item {
+    border: orange 2px solid;
+}
+
+#done .task-item {
+    border: green 2px solid;
+}
+
+.task-status .task-item:active {
+    cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+    .add-task {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .task-container {
+        flex-direction: column;
+    }
+}
+
+
