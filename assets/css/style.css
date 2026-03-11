@@ -77,9 +77,31 @@
     }
 }
 
+#to-do .task-item {
+    border: red 2px solid;
+}
+
+#in-progress .task-item {
+    border: orange 2px solid;
+}
+
+#done .task-item {
+    border: green 2px solid;
+}
 
 .task-status .task-item:active {
     cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+    .add-task {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .task-container {
+        flex-direction: column;
+    }
 }
 
 
