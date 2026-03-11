@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="main-title">
+            <h1>Kanban Board</h1>
+        </div>
+
+        <div class="add-task">
+            <input type="text" id="task-title" placeholder="Task Title">
+            <input type="text" id="task-description" placeholder="Task Description">
+            <button id="add-task-btn">Add Task</button>
+        </div>
+
+        <div class="task-container">
+            <!-- Tasks will be dynamically added here -->
+            <div class="task-status" id="to-do">
+                <h2>To Do</h2>
+                <div class="task-item" draggable="true">
+                    <h3>Task 1</h3>
+                    <p>Description of Task 1</p>
+                    <data status="to-do"></data>
+                    <button id="delete-task-btn">X</button>
+                </div>
+                <div class="task-item" draggable="true">
+                    <h3>Task 2</h3>
+                    <p>Description of Task 2</p>
+                    <data status="to-do"></data>
+                    <button id="delete-task-btn">X</button>
+                </div>
+                <div class="task-item" draggable="true">
+                    <h3>Task 3</h3>
+                    <p>Description of Task 3</p>
+                    <data status="to-do"></data>
+                    <button id="delete-task-btn">X</button>
+                </div>
+            </div>
+            <div class="task-status" id="in-progress">
+                <h2>In Progress</h2>
+                <div class="task-item" draggable="true">
+                    <h3>Task 4</h3>
+                    <p>Description of Task 4</p>
+                    <data status="in-progress"></data>
+                    <button id="delete-task-btn">X</button>
+                </div>
+            </div>
+            <div class="task-status" id="done">
+                <h2>Done</h2>
+                <div class="task-item" draggable="true">
+                    <h3>Task 5</h3>
+                    <p>Description of Task 5</p>
+                    <data status="done"></data>
+                    <button id="delete-task-btn">X</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
